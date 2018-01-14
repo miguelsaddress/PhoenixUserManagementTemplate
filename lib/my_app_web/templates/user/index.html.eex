@@ -1,0 +1,48 @@
+<h2>Listing Users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <th><%= user.id %></th>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link user.role.name, to: role_path(@conn, :show, user.role) %></td>
+
+      <td class="text-right">
+        <span>
+        <%= link to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" do %>
+          <i class="material-icons">visibility</i>
+        <% end %>
+        </span>
+        <span>
+        <%= link to: user_path(@conn, :edit, user), class: "btn btn-warning btn-xs" do %>
+          <i class="material-icons">mode_edit</i>
+        <% end %>
+        </span>
+        <span>
+        <%= link to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" do %>
+          <i class="material-icons">delete</i>
+        <% end %>
+        </span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn horizontal">
+  <%= link to: user_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons"> add </i>
+    <% end %>
+</div>

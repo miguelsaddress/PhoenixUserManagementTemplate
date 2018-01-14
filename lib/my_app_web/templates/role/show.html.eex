@@ -1,0 +1,18 @@
+<span><%= link "<< Back", to: role_path(@conn, :index) %></span>
+
+<h2>Show Role</h2>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row" class="col-sm-3">ID</th>
+      <td class="col-sm-9"><%= @role.id %></td>
+    </tr>
+    <tr>
+      <th scope="row" class="col-sm-3">Name</th>
+      <td class="col-sm-9"><%= @role.name %></td>
+    </tr>
+  </tbody>
+</table>
+
+<span><%= link "Edit", to: role_path(@conn, :edit, @role), class: "btn btn-default btn-xs deep-orange darken-3"%></span>
