@@ -1,0 +1,32 @@
+<span><%= link "<< Back", to: user_path(@conn, :index) %></span>
+
+<h2>Show User</h2>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row" class="col-sm-3">ID</th>
+      <td class="col-sm-9"><%= @user.id %></td>
+    </tr>
+    <tr>
+      <th scope="row" class="col-sm-3">Name</th>
+      <td class="col-sm-9"><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th scope="row" class="col-sm-3">Email</th>
+      <td class="col-sm-9"><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th scope="row" class="col-sm-3">google_token</th>
+      <td class="col-sm-9"><%= @user.google_token %></td>
+    </tr>
+    <tr>
+      <th scope="row" class="col-sm-3">Role</th>
+      <td class="col-sm-9">
+        <%= link @user.role.name, to: role_path(@conn, :show, @user.role) %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<span><%= link "Edit", to: user_path(@conn, :edit, @user), class: "btn btn-default btn-xs deep-orange darken-3"%></span>
